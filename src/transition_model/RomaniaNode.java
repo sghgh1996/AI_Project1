@@ -7,7 +7,7 @@ package transition_model;
  */
 public class RomaniaNode extends Node {
 	
-	public RomaniaNode(String romania_state, Node parent, Action action, double path_cost) {
+	public RomaniaNode(int romania_state, Node parent, Action action, double path_cost) {
 		super(romania_state, parent, action, path_cost);
 	}
 }
