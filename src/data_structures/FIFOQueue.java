@@ -66,4 +66,10 @@ public class FIFOQueue extends Queue {
 		return list.contains(node);
 	}
 
+	@Override
+	public void printQ() {
+		for (Node node : list) {
+			System.out.println(node.getState());
+		}
+	}
 }

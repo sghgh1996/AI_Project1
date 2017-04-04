@@ -97,6 +97,14 @@ public class RomaniaTravel extends Problem {
 		map[city_names.getVaslui()][city_names.getUrziceni()] = 142;
 		map[city_names.getZerind()][city_names.getOradea()] = 71;
 		map[city_names.getZerind()][city_names.getOradea()] = 75;
+		
+//		Debugging, printing map
+//		for (int i = 0; i < mapSize; i++) {
+//			for (int j = 0; j < mapSize; j++) {
+//				System.out.printf("%d ", map[i][j]);
+//			}
+//			System.out.println();
+//		}
 	}
 
 	public CityNames getCity_names() {
@@ -117,7 +125,7 @@ public class RomaniaTravel extends Problem {
 		ArrayList<Action> available_actions = new ArrayList<Action>();
 		for (int i = 0; i < mapSize; i++) {
 			if (map[(int) node.getState()][i] != -1 && map[(int) node.getState()][i] != 0) {
-				RomaniaAction new_action = new RomaniaAction((int) node.getState());
+				RomaniaAction new_action = new RomaniaAction(i);
 				available_actions.add(new_action);
 			}
 		}

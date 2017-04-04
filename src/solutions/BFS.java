@@ -6,6 +6,7 @@ import data_structures.FIFOQueue;
 import problems.Problem;
 import transition_model.Action;
 import transition_model.Node;
+import transition_model.RomaniaAction;
 
 /**
  * this is Breadth-First-Search algorithm. it uses FIFO queue for solving the
@@ -32,6 +33,7 @@ public class BFS extends SearchMethod {
 			explored = new ArrayList<Node>();
 
 			while (!frontier.isEmpty()) {
+				
 				Node node = frontier.pop();
 				increaseExpandedNode();
 				explored.add(node);

@@ -20,4 +20,5 @@ public abstract class Queue {
 	public abstract boolean isEmpty();
 	public abstract int size();
 	public abstract boolean contains(Node node);
+	public abstract void printQ();
 }
