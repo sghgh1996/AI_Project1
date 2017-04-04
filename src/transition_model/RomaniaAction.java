@@ -7,8 +7,17 @@ package transition_model;
  */
 public class RomaniaAction extends Action {
 
-	public RomaniaAction() {
-
+	/**
+	 * This is the action for this problem.<br>
+	 * Going from one city to the other cities.<br>
+	 * It is an integer variable and means the city number.
+	 */
+	private int go;
+	public RomaniaAction(int go_to_action) {
+		this.go = go_to_action;
 	}
-
+	
+	public int getGo() {
+		return go;
+	}
 }
