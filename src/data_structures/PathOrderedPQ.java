@@ -1,39 +1,38 @@
 package data_structures;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import transition_model.Node;
 
 /**
- * this Q is first-in-first-out. It uses linked-list to implement the Q.
+ * This is a priority Q that is ordered by path cost.<br>
+ * it returns the path by minimum cost.
  * @author Sadjad
  *
  */
-public class FIFOQueue extends Queue {
+public class PathOrderedPQ extends Queue {
 
-	/**
-	 * Linked-list is the DS for implementing FIFO Q.
-	 */
-	private LinkedList<Node> list;
-	
-	public FIFOQueue() {
+	ArrayList<Node> list;
+	public PathOrderedPQ() {
 		super();
-		list = new LinkedList<Node>();
+		list = new ArrayList<Node>();
 	}
 
 	@Override
 	public Node peek() {
-		return list.peek();
+		return list.get(getMinimumCostIndex());
 	}
 
 	@Override
 	public Node pop() {
-		return list.poll();
+		Node result = list.get(getMinimumCostIndex());
+		list.remove(getMinimumCostIndex());
+		return result;
 	}
 
 	@Override
-	public void push(Node state) {
-		list.addLast(state);
+	public void push(Node node) {
+		list.add(node);
 	}
 
 	@Override
@@ -57,6 +56,15 @@ public class FIFOQueue extends Queue {
 			System.out.println(node.getState());
 		}
 	}
+
+	private int getMinimumCostIndex(){
+		int min = 0;
+		for (Node node : list) {
+			if(node.getPathCost() < list.get(min).getPathCost())
+				min = list.indexOf(node);
+		}
+		return min;
+	}
 	
 	@Override
 	/**
@@ -67,3 +75,5 @@ public class FIFOQueue extends Queue {
 		return list.get(index);
 	}
 }
+
+

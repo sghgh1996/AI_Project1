@@ -51,60 +51,52 @@ public class RomaniaTravel extends Problem {
 		// Defining paths between cities. The graphical map is given in
 		// question.
 		city_names = new CityNames();
-		map[city_names.getArad()][city_names.getZerind()] = 75;
-		map[city_names.getArad()][city_names.getTimisoara()] = 118;
-		map[city_names.getArad()][city_names.getSibiu()] = 140;
-		map[city_names.getBucharest()][city_names.getUrziceni()] = 85;
-		map[city_names.getBucharest()][city_names.getGiurgiu()] = 90;
-		map[city_names.getBucharest()][city_names.getPitesti()] = 101;
-		map[city_names.getBucharest()][city_names.getFagaras()] = 211;
-		map[city_names.getCraiova()][city_names.getDobreta()] = 120;
-		map[city_names.getCraiova()][city_names.getPitesti()] = 138;
-		map[city_names.getCraiova()][city_names.getRimnicu_Vilcea()] = 146;
-		map[city_names.getDobreta()][city_names.getMehadia()] = 75;
-		map[city_names.getDobreta()][city_names.getCraiova()] = 120;
-		map[city_names.getEforie()][city_names.getHirsova()] = 86;
-		map[city_names.getFagaras()][city_names.getSibiu()] = 99;
-		map[city_names.getFagaras()][city_names.getBucharest()] = 211;
-		map[city_names.getGiurgiu()][city_names.getBucharest()] = 90;
-		map[city_names.getHirsova()][city_names.getEforie()] = 86;
-		map[city_names.getHirsova()][city_names.getUrziceni()] = 98;
-		map[city_names.getIasi()][city_names.getNeamt()] = 87;
-		map[city_names.getIasi()][city_names.getVaslui()] = 92;
-		map[city_names.getLugoj()][city_names.getMehadia()] = 70;
-		map[city_names.getLugoj()][city_names.getTimisoara()] = 111;
-		map[city_names.getMehadia()][city_names.getLugoj()] = 70;
-		map[city_names.getMehadia()][city_names.getDobreta()] = 75;
-		map[city_names.getNeamt()][city_names.getIasi()] = 87;
-		map[city_names.getOradea()][city_names.getZerind()] = 71;
-		map[city_names.getOradea()][city_names.getSibiu()] = 151;
-		map[city_names.getPitesti()][city_names.getBucharest()] = 101;
-		map[city_names.getPitesti()][city_names.getCraiova()] = 138;
-		map[city_names.getPitesti()][city_names.getRimnicu_Vilcea()] = 97;
-		map[city_names.getRimnicu_Vilcea()][city_names.getPitesti()] = 97;
-		map[city_names.getRimnicu_Vilcea()][city_names.getSibiu()] = 80;
-		map[city_names.getRimnicu_Vilcea()][city_names.getCraiova()] = 146;
-		map[city_names.getSibiu()][city_names.getOradea()] = 151;
-		map[city_names.getSibiu()][city_names.getRimnicu_Vilcea()] = 80;
-		map[city_names.getSibiu()][city_names.getFagaras()] = 99;
-		map[city_names.getSibiu()][city_names.getArad()] = 140;
-		map[city_names.getTimisoara()][city_names.getLugoj()] = 111;
-		map[city_names.getTimisoara()][city_names.getArad()] = 118;
-		map[city_names.getUrziceni()][city_names.getBucharest()] = 85;
-		map[city_names.getUrziceni()][city_names.getHirsova()] = 98;
-		map[city_names.getUrziceni()][city_names.getVaslui()] = 142;
-		map[city_names.getVaslui()][city_names.getIasi()] = 92;
-		map[city_names.getVaslui()][city_names.getUrziceni()] = 142;
-		map[city_names.getZerind()][city_names.getOradea()] = 71;
-		map[city_names.getZerind()][city_names.getOradea()] = 75;
-		
-//		Debugging, printing map
-//		for (int i = 0; i < mapSize; i++) {
-//			for (int j = 0; j < mapSize; j++) {
-//				System.out.printf("%d ", map[i][j]);
-//			}
-//			System.out.println();
-//		}
+		map[city_names.getCityNumber("Arad")][city_names.getCityNumber("Zerind")] = 75;
+		map[city_names.getCityNumber("Arad")][city_names.getCityNumber("Timisoara")] = 118;
+		map[city_names.getCityNumber("Arad")][city_names.getCityNumber("Sibiu")] = 140;
+		map[city_names.getCityNumber("Bucharest")][city_names.getCityNumber("Urziceni")] = 85;
+		map[city_names.getCityNumber("Bucharest")][city_names.getCityNumber("Giurgiu")] = 90;
+		map[city_names.getCityNumber("Bucharest")][city_names.getCityNumber("Pitesti")] = 101;
+		map[city_names.getCityNumber("Bucharest")][city_names.getCityNumber("Fagaras")] = 211;
+		map[city_names.getCityNumber("Craiova")][city_names.getCityNumber("Dobreta")] = 120;
+		map[city_names.getCityNumber("Craiova")][city_names.getCityNumber("Pitesti")] = 138;
+		map[city_names.getCityNumber("Craiova")][city_names.getCityNumber("Rimnicu_Vilcea")] = 146;
+		map[city_names.getCityNumber("Dobreta")][city_names.getCityNumber("Mehadia")] = 75;
+		map[city_names.getCityNumber("Dobreta")][city_names.getCityNumber("Craiova")] = 120;
+		map[city_names.getCityNumber("Eforie")][city_names.getCityNumber("Hirsova")] = 86;
+		map[city_names.getCityNumber("Fagaras")][city_names.getCityNumber("Sibiu")] = 99;
+		map[city_names.getCityNumber("Fagaras")][city_names.getCityNumber("Bucharest")] = 211;
+		map[city_names.getCityNumber("Giurgiu")][city_names.getCityNumber("Bucharest")] = 90;
+		map[city_names.getCityNumber("Hirsova")][city_names.getCityNumber("Eforie")] = 86;
+		map[city_names.getCityNumber("Hirsova")][city_names.getCityNumber("Urziceni")] = 98;
+		map[city_names.getCityNumber("Iasi")][city_names.getCityNumber("Neamt")] = 87;
+		map[city_names.getCityNumber("Iasi")][city_names.getCityNumber("Vaslui")] = 92;
+		map[city_names.getCityNumber("Lugoj")][city_names.getCityNumber("Mehadia")] = 70;
+		map[city_names.getCityNumber("Lugoj")][city_names.getCityNumber("Timisoara")] = 111;
+		map[city_names.getCityNumber("Mehadia")][city_names.getCityNumber("Lugoj")] = 70;
+		map[city_names.getCityNumber("Mehadia")][city_names.getCityNumber("Dobreta")] = 75;
+		map[city_names.getCityNumber("Neamt")][city_names.getCityNumber("Iasi")] = 87;
+		map[city_names.getCityNumber("Oradea")][city_names.getCityNumber("Zerind")] = 71;
+		map[city_names.getCityNumber("Oradea")][city_names.getCityNumber("Sibiu")] = 151;
+		map[city_names.getCityNumber("Pitesti")][city_names.getCityNumber("Bucharest")] = 101;
+		map[city_names.getCityNumber("Pitesti")][city_names.getCityNumber("Craiova")] = 138;
+		map[city_names.getCityNumber("Pitesti")][city_names.getCityNumber("Rimnicu_Vilcea")] = 97;
+		map[city_names.getCityNumber("Rimnicu_Vilcea")][city_names.getCityNumber("Pitesti")] = 97;
+		map[city_names.getCityNumber("Rimnicu_Vilcea")][city_names.getCityNumber("Sibiu")] = 80;
+		map[city_names.getCityNumber("Rimnicu_Vilcea")][city_names.getCityNumber("Craiova")] = 146;
+		map[city_names.getCityNumber("Sibiu")][city_names.getCityNumber("Oradea")] = 151;
+		map[city_names.getCityNumber("Sibiu")][city_names.getCityNumber("Rimnicu_Vilcea")] = 80;
+		map[city_names.getCityNumber("Sibiu")][city_names.getCityNumber("Fagaras")] = 99;
+		map[city_names.getCityNumber("Sibiu")][city_names.getCityNumber("Arad")] = 140;
+		map[city_names.getCityNumber("Timisoara")][city_names.getCityNumber("Lugoj")] = 111;
+		map[city_names.getCityNumber("Timisoara")][city_names.getCityNumber("Arad")] = 118;
+		map[city_names.getCityNumber("Urziceni")][city_names.getCityNumber("Bucharest")] = 85;
+		map[city_names.getCityNumber("Urziceni")][city_names.getCityNumber("Hirsova")] = 98;
+		map[city_names.getCityNumber("Urziceni")][city_names.getCityNumber("Vaslui")] = 142;
+		map[city_names.getCityNumber("Vaslui")][city_names.getCityNumber("Iasi")] = 92;
+		map[city_names.getCityNumber("Vaslui")][city_names.getCityNumber("Urziceni")] = 142;
+		map[city_names.getCityNumber("Zerind")][city_names.getCityNumber("Oradea")] = 71;
+		map[city_names.getCityNumber("Zerind")][city_names.getCityNumber("Oradea")] = 75;
 	}
 
 	public CityNames getCity_names() {
@@ -116,7 +108,8 @@ public class RomaniaTravel extends Problem {
 	 * Start place is Arad.
 	 */
 	public Node initialState() {
-		RomaniaNode initial_node = new RomaniaNode(city_names.getArad(), null, null, 0);
+		RomaniaNode initial_node = 
+				new RomaniaNode("Arad", null, null, 0);
 		return initial_node;
 	}
 
@@ -124,8 +117,9 @@ public class RomaniaTravel extends Problem {
 	public ArrayList<Action> actions(Node node) {
 		ArrayList<Action> available_actions = new ArrayList<Action>();
 		for (int i = 0; i < mapSize; i++) {
-			if (map[(int) node.getState()][i] != -1 && map[(int) node.getState()][i] != 0) {
-				RomaniaAction new_action = new RomaniaAction(i);
+			if (map[city_names.getCityNumber((String)node.getState())][i] != -1 
+					&& map[city_names.getCityNumber((String)node.getState())][i] != 0) {
+				RomaniaAction new_action = new RomaniaAction(city_names.getCityName(i));
 				available_actions.add(new_action);
 			}
 		}
@@ -134,25 +128,25 @@ public class RomaniaTravel extends Problem {
 
 	@Override
 	public Node result(Node parent, Action action) {
-		int dest_city = ((RomaniaAction) action).getGo();
-		int map_distance = map[(int) parent.getState()][dest_city];
+		String dest_city = ((RomaniaAction) action).getGo();
+		int map_distance = 
+				map[city_names.getCityNumber((String)parent.getState())][city_names.getCityNumber(dest_city)];
 		if (map_distance != -1 || map_distance != 0) {
-			RomaniaNode result_node = new RomaniaNode(dest_city, parent, action,
-					parent.getPathCost() + actionCost(parent, action));
+			RomaniaNode result_node = new RomaniaNode(dest_city, 
+					parent, action, parent.getPathCost() + actionCost(parent, action));
 			return result_node;
 		}
-
 		return null;
 	}
 
 	@Override
 	public boolean goalTest(Node node) {
-		return ((int) node.getState()) == city_names.getVaslui();
+		return node.getState() == "Vaslui";
 	}
 
 	@Override
 	public double actionCost(Node node, Action action) {
-		int dest_city = ((RomaniaAction) action).getGo();
-		return map[(int) node.getState()][dest_city];
+		String dest_city = ((RomaniaAction) action).getGo();
+		return map[city_names.getCityNumber((String)node.getState())][city_names.getCityNumber(dest_city)];
 	}
 }

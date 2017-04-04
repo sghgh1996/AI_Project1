@@ -12,12 +12,12 @@ public class RomaniaAction extends Action {
 	 * Going from one city to the other cities.<br>
 	 * It is an integer variable and means the city number.
 	 */
-	private int go;
-	public RomaniaAction(int go_to_action) {
+	private String go;
+	public RomaniaAction(String go_to_action) {
 		this.go = go_to_action;
 	}
 	
-	public int getGo() {
+	public String getGo() {
 		return go;
 	}
 }
