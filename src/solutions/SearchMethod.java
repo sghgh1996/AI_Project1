@@ -10,7 +10,7 @@ import transition_model.Node;
 public abstract class SearchMethod {
 
 	protected Queue frontier;
-	protected ArrayList<Node> explored;
+	protected Queue explored;
 	
 	protected int expandedNode;
     protected int visitedNode;

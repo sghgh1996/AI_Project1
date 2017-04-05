@@ -48,7 +48,13 @@ public class FIFOQueue extends Queue {
 
 	@Override
 	public boolean contains(Node node) {
-		return list.contains(node);
+		for (Node list_node : list) {
+			if(list_node.getState().equals(node.getState())){
+				return true;
+			}
+		}
+		return false;
+//		return list.contains(node);
 	}
 
 	@Override

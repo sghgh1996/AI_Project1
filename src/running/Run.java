@@ -15,6 +15,6 @@ public class Run {
 		RomaniaTravel romania_problem = new RomaniaTravel();
 		BFS bfs_algorithm = new BFS();
 		
-		agent.solve(romania_problem, bfs_algorithm);
+		agent.solve(romania_problem, bfs_algorithm, "tree");
 	}
 }

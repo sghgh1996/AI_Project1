@@ -31,16 +31,18 @@ public class BFS extends SearchMethod {
 			frontier = new FIFOQueue();
 			frontier.push(initial_node);
 			setMaxUsedMemory(frontier.size());
-			explored = new ArrayList<Node>();
+			explored = new FIFOQueue();
 
 			while (!frontier.isEmpty()) {
 				Node node = frontier.pop();
 				increaseExpandedNode();
-				explored.add(node);
 				for (Action action : problem.actions(node)) {
 					Node child = problem.result(node, action);
 					increaseVisitedNode();
 					if (!(explored.contains(child) || frontier.contains(child))) {
+						child.setAction(action);
+						child.setParent(node);
+						child.setPathCost(node.getPathCost() + problem.actionCost(node, action));
 						if (problem.goalTest(child)) {
 							return child;
 						}
@@ -49,6 +51,8 @@ public class BFS extends SearchMethod {
 							setMaxUsedMemory(frontier.size());
 					}
 				}
+				explored.push(node);
+
 			}
 		} else if (type == "tree") {
 			Node initial_node = problem.initialState();
@@ -66,6 +70,9 @@ public class BFS extends SearchMethod {
 					Node child = problem.result(node, action);
 					increaseVisitedNode();
 					if (!(frontier.contains(child))) {
+						child.setAction(action);
+						child.setParent(node);
+						child.setPathCost(node.getPathCost() + problem.actionCost(node, action));
 						if (problem.goalTest(child)) {
 							return child;
 						}

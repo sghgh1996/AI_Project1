@@ -11,8 +11,8 @@ public class SolverAgent {
 		
 	}
 	
-	public void solve(Problem problem, SearchMethod algorithm){
-		Node result_node = algorithm.doSearch(problem, "tree");
+	public void solve(Problem problem, SearchMethod algorithm, String type){
+		Node result_node = algorithm.doSearch(problem, type);
 		printResult(result_node, algorithm);
 	}
 	

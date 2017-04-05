@@ -108,8 +108,10 @@ public class RomaniaTravel extends Problem {
 	 * Start place is Arad.
 	 */
 	public Node initialState() {
-		RomaniaNode initial_node = 
-				new RomaniaNode("Arad", null, null, 0);
+		RomaniaNode initial_node = new RomaniaNode("Arad");
+		initial_node.setParent(null);
+		initial_node.setAction(null);
+		initial_node.setPathCost(0);
 		return initial_node;
 	}
 
@@ -132,8 +134,9 @@ public class RomaniaTravel extends Problem {
 		int map_distance = 
 				map[city_names.getCityNumber((String)parent.getState())][city_names.getCityNumber(dest_city)];
 		if (map_distance != -1 || map_distance != 0) {
-			RomaniaNode result_node = new RomaniaNode(dest_city, 
-					parent, action, parent.getPathCost() + actionCost(parent, action));
+//			RomaniaNode result_node = new RomaniaNode(dest_city, 
+//					parent, action, parent.getPathCost() + actionCost(parent, action));
+			RomaniaNode result_node = new RomaniaNode(dest_city);
 			return result_node;
 		}
 		return null;

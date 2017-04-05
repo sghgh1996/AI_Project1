@@ -32,10 +32,7 @@ public abstract class Node {
 	 */
 	protected Object state;
 	
-	public Node(Object state, Node parent, Action action, double path_cost) {
-		this.setParent(parent);
-		this.setAction(action);
-		this.setPathCost(path_cost);
+	public Node(Object state) {
 		this.setState(state);
 	}
 	
