@@ -42,7 +42,7 @@ public class UniformCost extends SearchMethod {
 							setMaxUsedMemory(frontier.size());
 					} else if(frontier.contains(child)){
 						double new_cost = node.getPathCost() + problem.actionCost(node, action);
-						if(new_cost < frontier.)
+//						if(new_cost < child.getPathCost())
 					}
 				}
 			}
