@@ -1,0 +1,10 @@
+### Java ###
+*.class
+
+### eclipse ###
+.project
+.classpath
+
+bin/*
+
+/.settings/*
