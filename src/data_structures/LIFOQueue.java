@@ -43,7 +43,7 @@ public class LIFOQueue extends Queue {
 	@Override
 	public boolean contains(Node node) {
 		for (Node list_node : list) {
-			if(list_node.getState().equals(node.getState())){
+			if(list_node.equals(node)){
 				return true;
 			}
 		}

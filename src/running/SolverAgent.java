@@ -19,12 +19,13 @@ public class SolverAgent {
 	private void printResult(Node result_node, SearchMethod algorithm, Problem problem){
 		System.out.printf("========== %s ==========\n\n", problem.getProblem_name());
 		if(result_node != null){
-			System.out.println("Result is : "+ result_node.getState());
+			System.out.println("Result is : ");
+			System.out.println(result_node.getState());
 			System.out.println("Number of expanded nodes : " + algorithm.getExpandedNode());
 			System.out.println("Number of visited nodes : " + algorithm.getVisitedNode());
 			System.out.println("Number of max used memory : " + algorithm.getMaxUsedMemory());
-	        System.out.println("Cost of the path is : " + result_node.getPathCost()+"\n");
-	        System.out.println("The best path is like below : ");
+	        System.out.println("Cost of the path is : " + result_node.getPathCost());
+	        System.out.println("The best path is like below : "+"\n");
 	        Node temp = result_node;
 	        ArrayList<Node> result_path = new ArrayList<Node>();
 	        while(temp != null){
@@ -33,13 +34,13 @@ public class SolverAgent {
 	        }
 	        
 	        for(int i = result_path.size() - 1; i >= 0 ; i--){
-	        	System.out.printf("  %s  ", result_path.get(i).getState());
+	        	System.out.println(result_path.get(i).getState());
 	        }
 		} else {
 			System.out.println("!!!No Result!!!");
 		}
         System.out.println();
-        System.out.println("==========Romania Traveling Finish==========");
+		System.out.printf("========== %s finish==========\n\n", problem.getProblem_name());
 
 	}
 }

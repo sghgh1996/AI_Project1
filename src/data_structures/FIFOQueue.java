@@ -48,14 +48,25 @@ public class FIFOQueue extends Queue {
 
 	@Override
 	public boolean contains(Node node) {
+//		print_arr(node);
 		for (Node list_node : list) {
-			if(list_node.getState().equals(node.getState())){
+//			print_arr(list_node);
+			if(list_node.equals(node)){
 				return true;
 			}
 		}
 		return false;
 	}
-
+	private void print_arr(Node node){
+		int[][] arr = (int[][]) node.getState();
+		for (int i = 0; i < 3; i++) {
+			for(int j= 0; j < 3; j++){
+				System.out.printf("%d  ", arr[i][j]);
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
 	@Override
 	public void printQ() {
 		for (Node node : list) {

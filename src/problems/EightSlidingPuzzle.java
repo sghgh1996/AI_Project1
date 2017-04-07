@@ -17,11 +17,13 @@ public class EightSlidingPuzzle extends Problem {
 
 	@Override
 	public Node initialState() {
-		ReadMatrixFromFile reader = new ReadMatrixFromFile(3, 3, "src/sliding_puzzle");
+		ReadMatrixFromFile reader = new ReadMatrixFromFile(3, 3, "src/sliding_puzzle.txt");
 		reader.readMatrix();
 		int[][] inital_puzzle = reader.getResultMatrix();
 		EightPuzzleNode initial_node = new EightPuzzleNode(inital_puzzle);
-		
+		initial_node.setParent(null);
+		initial_node.setAction(null);
+		initial_node.setPathCost(0);
 		return initial_node;
 	}
 
@@ -68,7 +70,13 @@ public class EightSlidingPuzzle extends Problem {
 
 	@Override
 	public Node result(Node parent, Action action) {
-		int[][] current_puzzle = (int[][]) parent.getState();
+		int[][] current_puzzle = new int[3][3];
+		int[][] temp_puzzle = (int[][]) parent.getState();
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				current_puzzle[i][j] = temp_puzzle[i][j];
+			}
+		}
 		int action_dir = ((EightPuzzleAction)action).getDirection();
 		int row = getRowIndexOfWhiteCell(current_puzzle);
 		int col = getColumnIndexOfWhiteCell(current_puzzle);

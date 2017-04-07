@@ -23,6 +23,7 @@ public class DFS extends SearchMethod {
 			frontier.push(initial_node);
 			setMaxUsedMemory(frontier.size());
 			explored = new FIFOQueue();
+			
 			while (!frontier.isEmpty()) {
 				Node node = frontier.pop();
 				increaseExpandedNode();
@@ -30,15 +31,15 @@ public class DFS extends SearchMethod {
 				for (Action action : problem.actions(node)) {
 					Node child = problem.result(node, action);
 					increaseVisitedNode();
-					if (!(explored.contains(child) || frontier.contains(child))) {
+					if(!(explored.contains(child) || frontier.contains(child))) {
 						child.setAction(action);
 						child.setParent(node);
 						child.setPathCost(node.getPathCost() + problem.actionCost(node, action));
-						if (problem.goalTest(child)) {
+						if(problem.goalTest(child)) {
 							return child;
 						}
 						frontier.push(child);
-						if (getMaxUsedMemory() < frontier.size())
+						if(getMaxUsedMemory() < frontier.size())
 							setMaxUsedMemory(frontier.size());
 					}
 				}
