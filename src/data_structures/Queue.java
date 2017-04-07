@@ -41,5 +41,5 @@ public abstract class Queue {
 	 */
 	public abstract boolean contains(Node node);
 	public abstract void printQ();
-	public abstract Node getElement(int index);
+	public abstract Node getElement(Object state);
 }

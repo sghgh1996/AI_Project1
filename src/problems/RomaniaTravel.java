@@ -2,6 +2,7 @@ package problems;
 
 import java.util.ArrayList;
 
+import helpers.CityNames;
 import transition_model.Action;
 import transition_model.Node;
 import transition_model.RomaniaAction;
@@ -29,6 +30,7 @@ public class RomaniaTravel extends Problem {
 
 	public RomaniaTravel() {
 		super();
+		this.problem_name = "Romania Traveling";
 		initializeProblem();
 	}
 
@@ -119,8 +121,8 @@ public class RomaniaTravel extends Problem {
 	public ArrayList<Action> actions(Node node) {
 		ArrayList<Action> available_actions = new ArrayList<Action>();
 		for (int i = 0; i < mapSize; i++) {
-			if (map[city_names.getCityNumber((String)node.getState())][i] != -1 
-					&& map[city_names.getCityNumber((String)node.getState())][i] != 0) {
+			if (map[city_names.getCityNumber((String) node.getState())][i] != -1
+					&& map[city_names.getCityNumber((String) node.getState())][i] != 0) {
 				RomaniaAction new_action = new RomaniaAction(city_names.getCityName(i));
 				available_actions.add(new_action);
 			}
@@ -131,11 +133,12 @@ public class RomaniaTravel extends Problem {
 	@Override
 	public Node result(Node parent, Action action) {
 		String dest_city = ((RomaniaAction) action).getGo();
-		int map_distance = 
-				map[city_names.getCityNumber((String)parent.getState())][city_names.getCityNumber(dest_city)];
+		int map_distance = map[city_names.getCityNumber((String) parent.getState())][city_names
+				.getCityNumber(dest_city)];
 		if (map_distance != -1 || map_distance != 0) {
-//			RomaniaNode result_node = new RomaniaNode(dest_city, 
-//					parent, action, parent.getPathCost() + actionCost(parent, action));
+			// RomaniaNode result_node = new RomaniaNode(dest_city,
+			// parent, action, parent.getPathCost() + actionCost(parent,
+			// action));
 			RomaniaNode result_node = new RomaniaNode(dest_city);
 			return result_node;
 		}
@@ -150,6 +153,21 @@ public class RomaniaTravel extends Problem {
 	@Override
 	public double actionCost(Node node, Action action) {
 		String dest_city = ((RomaniaAction) action).getGo();
-		return map[city_names.getCityNumber((String)node.getState())][city_names.getCityNumber(dest_city)];
+		return map[city_names.getCityNumber((String) node.getState())][city_names.getCityNumber(dest_city)];
+	}
+
+	@Override
+	public Node goalState() {
+		RomaniaNode initial_node = new RomaniaNode("Arad");
+		initial_node.setParent(null);
+		initial_node.setAction(null);
+		initial_node.setPathCost(0);
+		return initial_node;
+	}
+
+	@Override
+	public double heuristicFunction(Node node) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

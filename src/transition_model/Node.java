@@ -32,8 +32,11 @@ public abstract class Node {
 	 */
 	protected Object state;
 	
+	protected int depth;
+	
 	public Node(Object state) {
 		this.setState(state);
+		this.setDepth(0);
 	}
 	
 	public Node getParent() {
@@ -66,5 +69,13 @@ public abstract class Node {
 	
 	public Object getState(){
 		return state;
+	}
+
+	public int getDepth() {
+		return depth;
+	}
+
+	public void setDepth(int depth) {
+		this.depth = depth;
 	}
 }

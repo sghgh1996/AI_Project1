@@ -12,7 +12,8 @@ import transition_model.Node;
  */
 public class PathOrderedPQ extends Queue {
 
-	ArrayList<Node> list;
+	private ArrayList<Node> list;
+	
 	public PathOrderedPQ() {
 		super();
 		list = new ArrayList<Node>();
@@ -20,14 +21,19 @@ public class PathOrderedPQ extends Queue {
 
 	@Override
 	public Node peek() {
-		return list.get(getMinimumCostIndex());
+		if(getMinimumCostIndex() != -1)
+			return list.get(getMinimumCostIndex());
+		return null;
 	}
 
 	@Override
 	public Node pop() {
-		Node result = list.get(getMinimumCostIndex());
-		list.remove(getMinimumCostIndex());
-		return result;
+		if(getMinimumCostIndex() != -1){
+			Node result = list.get(getMinimumCostIndex());
+			list.remove(getMinimumCostIndex());
+			return result;
+		}
+		return null;
 	}
 
 	@Override
@@ -47,17 +53,26 @@ public class PathOrderedPQ extends Queue {
 
 	@Override
 	public boolean contains(Node node) {
-		return list.contains(node);
+		for (Node list_node : list) {
+			if(list_node.getState().equals(node.getState())){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	@Override
 	public void printQ() {
 		for (Node node : list) {
-			System.out.println(node.getState());
+			System.out.printf(" %s ",node.getState());
 		}
+		System.out.println();
 	}
 
 	private int getMinimumCostIndex(){
+		if(list.isEmpty())
+			return -1;
+		
 		int min = 0;
 		for (Node node : list) {
 			if(node.getPathCost() < list.get(min).getPathCost())
@@ -69,10 +84,14 @@ public class PathOrderedPQ extends Queue {
 	@Override
 	/**
 	 * Returns the element at the specified position in this list.
-	 * @param index
+	 * @param state
 	 */
-	public Node getElement(int index){
-		return list.get(index);
+	public Node getElement(Object state){
+		for (Node node : list) {
+			if(node.getState().equals(state))
+				return node;
+		}
+		return null;
 	}
 }
 

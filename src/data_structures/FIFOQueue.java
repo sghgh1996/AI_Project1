@@ -54,22 +54,26 @@ public class FIFOQueue extends Queue {
 			}
 		}
 		return false;
-//		return list.contains(node);
 	}
 
 	@Override
 	public void printQ() {
 		for (Node node : list) {
-			System.out.println(node.getState());
+			System.out.printf(" %s ",node.getState());
 		}
+		System.out.println();
 	}
 	
 	@Override
 	/**
 	 * Returns the element at the specified position in this list.
-	 * @param index
+	 * @param state
 	 */
-	public Node getElement(int index){
-		return list.get(index);
+	public Node getElement(Object state){
+		for (Node node : list) {
+			if(node.getState().equals(state))
+				return node;
+		}
+		return null;
 	}
 }

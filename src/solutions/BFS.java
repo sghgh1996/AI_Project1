@@ -36,6 +36,7 @@ public class BFS extends SearchMethod {
 			while (!frontier.isEmpty()) {
 				Node node = frontier.pop();
 				increaseExpandedNode();
+				explored.push(node);
 				for (Action action : problem.actions(node)) {
 					Node child = problem.result(node, action);
 					increaseVisitedNode();
@@ -51,8 +52,6 @@ public class BFS extends SearchMethod {
 							setMaxUsedMemory(frontier.size());
 					}
 				}
-				explored.push(node);
-
 			}
 		} else if (type == "tree") {
 			Node initial_node = problem.initialState();
