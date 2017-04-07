@@ -1,10 +1,10 @@
 ### Java ###
-#*.class
+*.class
 
 ### eclipse ###
-#.project
-#.classpath
+.project
+.classpath
 
-#bin/*
+bin/*
 
-#/.settings/*
+/.settings/*

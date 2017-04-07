@@ -17,7 +17,7 @@ public class EightSlidingPuzzle extends Problem {
 
 	@Override
 	public Node initialState() {
-		ReadMatrixFromFile reader = new ReadMatrixFromFile(3, 3, "sliding_puzzle");
+		ReadMatrixFromFile reader = new ReadMatrixFromFile(3, 3, "src/sliding_puzzle");
 		reader.readMatrix();
 		int[][] inital_puzzle = reader.getResultMatrix();
 		EightPuzzleNode initial_node = new EightPuzzleNode(inital_puzzle);
