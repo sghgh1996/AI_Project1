@@ -14,6 +14,8 @@ import transition_model.Node;
  */
 public abstract class Problem {
 
+	protected String problem_name;
+
 	public Problem() {
 	
 	}
@@ -23,8 +25,21 @@ public abstract class Problem {
 	public abstract Node result(Node parent, Action action);
 	public abstract boolean goalTest(Node node);
 	public abstract double actionCost(Node node, Action action);
-	
+    public abstract Node goalState();
+    public abstract double heuristicFunction(Node node);
+
 	public double pathCost(Node node){
 		return node.getPathCost();
 	};
+	
+	public String getProblem_name() {
+		return problem_name;
+	}
+	
+	public double evaluateFunction(Node node){
+        if( node == null )  
+        	return Double.MAX_VALUE ;
+        
+        return heuristicFunction(node) + node.getPathCost() ;
+    }
 }
