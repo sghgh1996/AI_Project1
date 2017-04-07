@@ -68,8 +68,34 @@ public class EightSlidingPuzzle extends Problem {
 
 	@Override
 	public Node result(Node parent, Action action) {
-		// TODO Auto-generated method stub
-		return null;
+		int[][] current_puzzle = (int[][]) parent.getState();
+		int action_dir = ((EightPuzzleAction)action).getDirection();
+		int row = getRowIndexOfWhiteCell(current_puzzle);
+		int col = getColumnIndexOfWhiteCell(current_puzzle);
+		
+		switch (action_dir) {
+		case 1: // up
+			current_puzzle[row][col] = current_puzzle[row - 1][col];
+			current_puzzle[row - 1][col] = 0;
+			break;
+			
+		case 2: // right
+			current_puzzle[row][col] = current_puzzle[row][col + 1];
+			current_puzzle[row][col + 1] = 0;
+			break;
+			
+		case 3: // down
+			current_puzzle[row][col] = current_puzzle[row + 1][col];
+			current_puzzle[row + 1][col] = 0;
+			break;
+			
+		case 4: // left
+			current_puzzle[row][col] = current_puzzle[row][col - 1];
+			current_puzzle[row][col - 1] = 0;
+			break;
+		}
+		Node result_node = new EightPuzzleNode(current_puzzle);
+		return result_node;
 	}
 
 	@Override
@@ -103,6 +129,27 @@ public class EightSlidingPuzzle extends Problem {
 	public double heuristicFunction(Node node) {
 		// TODO for A*
 		return 0;
+	}
+	
+	private int getRowIndexOfWhiteCell(int[][] puzzle){
+		for(int i = 0; i <= 2; i++){
+			for (int j = 0; j <= 2; j++){
+				if(puzzle[i][j] == 0)
+					return i;
+			}
+		}
+		
+		return -1;
+	}
+	private int getColumnIndexOfWhiteCell(int[][] puzzle){
+		for(int i = 0; i <= 2; i++){
+			for (int j = 0; j <= 2; j++){
+				if(puzzle[i][j] == 0)
+					return j;
+			}
+		}
+		
+		return -1;
 	}
 
 }
