@@ -14,7 +14,7 @@ public class DFS extends SearchMethod {
 
 	@Override
 	public Node doSearch(Problem problem, String type) {
-		if(type == "graph"){
+		if (type == "graph") {
 			Node initial_node = problem.initialState();
 			increaseVisitedNode();
 			if (problem.goalTest(initial_node))
@@ -23,28 +23,39 @@ public class DFS extends SearchMethod {
 			frontier.push(initial_node);
 			setMaxUsedMemory(frontier.size());
 			explored = new FIFOQueue();
-			
+
 			while (!frontier.isEmpty()) {
 				Node node = frontier.pop();
 				increaseExpandedNode();
 				explored.push(node);
+				printNode(node);
 				for (Action action : problem.actions(node)) {
 					Node child = problem.result(node, action);
 					increaseVisitedNode();
-					if(!(explored.contains(child) || frontier.contains(child))) {
+					if (!(explored.contains(child) || frontier.contains(child))) {
 						child.setAction(action);
 						child.setParent(node);
 						child.setPathCost(node.getPathCost() + problem.actionCost(node, action));
-						if(problem.goalTest(child)) {
+						if (problem.goalTest(child)) {
 							return child;
 						}
 						frontier.push(child);
-						if(getMaxUsedMemory() < frontier.size())
+						if (getMaxUsedMemory() < frontier.size())
 							setMaxUsedMemory(frontier.size());
 					}
+//					} else {
+//						System.out.println("here");
+//					}
 				}
+				
+//				try {
+//					Thread.sleep(300);
+//				} catch (InterruptedException e) {
+//					e.printStackTrace();
+//				}
+				
 			}
-		} else if(type == "tree"){
+		} else if (type == "tree") {
 			Node initial_node = problem.initialState();
 			increaseVisitedNode();
 			if (problem.goalTest(initial_node))
@@ -72,8 +83,20 @@ public class DFS extends SearchMethod {
 							setMaxUsedMemory(frontier.size());
 					}
 				}
-			}			
+			}
 		}
 		return null;
+	}
+
+	private void printNode(Node node) {
+		int[][] arr = (int[][]) node.getState();
+
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				System.out.printf("%s ",arr[i][j]);
+			}
+			System.out.println();
+		}
+		System.out.println();
 	}
 }
