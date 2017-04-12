@@ -28,7 +28,6 @@ public class DFS extends SearchMethod {
 				Node node = frontier.pop();
 				increaseExpandedNode();
 				explored.push(node);
-				printNode(node);
 				for (Action action : problem.actions(node)) {
 					Node child = problem.result(node, action);
 					increaseVisitedNode();
@@ -43,17 +42,7 @@ public class DFS extends SearchMethod {
 						if (getMaxUsedMemory() < frontier.size())
 							setMaxUsedMemory(frontier.size());
 					}
-//					} else {
-//						System.out.println("here");
-//					}
 				}
-				
-//				try {
-//					Thread.sleep(300);
-//				} catch (InterruptedException e) {
-//					e.printStackTrace();
-//				}
-				
 			}
 		} else if (type == "tree") {
 			Node initial_node = problem.initialState();
@@ -86,17 +75,5 @@ public class DFS extends SearchMethod {
 			}
 		}
 		return null;
-	}
-
-	private void printNode(Node node) {
-		int[][] arr = (int[][]) node.getState();
-
-		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < 3; j++) {
-				System.out.printf("%s ",arr[i][j]);
-			}
-			System.out.println();
-		}
-		System.out.println();
 	}
 }
